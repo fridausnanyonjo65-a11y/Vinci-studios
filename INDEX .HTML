@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VINCI STUDIOS | Creative Graphic Design Studio in Uganda</title>
+    <meta name="description" content="VINCI STUDIOS — Turning Ideas Into Powerful Visual Designs. We are a creative graphic design studio in Uganda offering branding, printing, digital graphics, and more.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepblack: '#070707',
+                        cardblack: '#121212',
+                        electric: '#9D00FF',
+                        gold: '#FFD700',
+                        lightpurple: '#C77DFF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 1s ease-out',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #070707;
+            color: #ffffff;
+        }
+        
+        .glass-nav {
+            background: rgba(7, 7, 7, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(157, 0, 255, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #9D00FF, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .service-card {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #9D00FF;
+            box-shadow: 0 10px 30px -10px rgba(157, 0, 255, 0.5);
+        }
+
+        .portfolio-overlay {
+            background: linear-gradient(to top, rgba(7, 7, 7, 0.9), transparent);
+        }
+
+        .btn-electric {
+            background: linear-gradient(45deg, #9D00FF, #7000cc);
+            transition: all 0.3s;
+        }
+        .btn-electric:hover {
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .btn-gold {
+            background: linear-gradient(45deg, #FFD700, #e5a93c);
+            color: #000;
+            transition: all 0.3s;
+        }
+        .btn-gold:hover {
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #070707;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #9D00FF;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="custom-scrollbar antialiased">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <svg class="h-10 w-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 'V' shape -->
+                        <path d="M20 20 L50 80 L65 50" stroke="#9D00FF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- 'S' shape -->
+                        <path d="M80 20 C60 20, 55 40, 70 50 C85 60, 80 80, 50 80" stroke="#FFD700" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="font-display font-bold text-xl tracking-wider">VINCI <span class="text-electric">STUDIOS</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">About Us</a>
+                    <a href="#services" class="text-gray-300 hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">Services</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">Portfolio</a>
+                    <a href="#team" class="text-gray-300 hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">Our Team</a>
+                    <a href="#contact" class="text-gray-300 hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardblack border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold hover:bg-gray-800 rounded-md">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold hover:bg-gray-800 rounded-md">About Us</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold hover:bg-gray-800 rounded-md">Services</a>
+                <a href="#portfolio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold hover:bg-gray-800 rounded-md">Portfolio</a>
+                <a href="#team" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold hover:bg-gray-800 rounded-md">Our Team</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold hover:bg-gray-800 rounded-md">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+        <!-- Background decorative blobs -->
+        <div class="absolute top-0 left-10 w-72 h-72 bg-electric rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-gold rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="font-display text-5xl md:text-7xl font-black mb-6 leading-tight animate-fade-in">
+                Turning Ideas Into <br>
+                <span class="gradient-text">Powerful Visual Designs</span>
+            </h1>
+            <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto mb-10 font-sans leading-relaxed animate-fade-in" style="animation-delay: 0.2s;">
+                We are a creative graphic design studio dedicated to transforming ideas into outstanding visual identities. From branding and printing to digital graphics, we help businesses communicate effectively through professional designs.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 animate-fade-in" style="animation-delay: 0.4s;">
+                <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-full btn-electric text-white font-bold tracking-wide text-center">
+                    Explore Our Services
+                </a>
+                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-gray-600 hover:border-gold hover:text-gold transition-all text-white font-bold tracking-wide text-center">
+                    View Our Portfolio
+                </a>
+                <a href="https://wa.me/256750617186" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full btn-gold text-black font-bold tracking-wide text-center flex justify-center items-center gap-2">
+                    <i class="fab fa-whatsapp text-xl"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us & Team Section -->
+    <section id="about" class="py-20 bg-cardblack">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">About <span class="text-electric">VINCI STUDIOS</span></h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        VINCI STUDIOS is a premier creative graphics company focused on visual communication, quality, originality, and complete customer satisfaction. We don't just make designs; we craft visual experiences that resonate with your audience.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="bg-deepblack p-6 rounded-xl border border-gray-800 border-l-4 border-l-electric">
+                            <h3 class="font-display text-xl font-bold mb-2 text-white">Our Mission</h3>
+                            <p class="text-gray-400 text-sm">"To deliver creative, professional, and visually compelling graphic design solutions that help individuals and businesses communicate effectively and build strong brands."</p>
+                        </div>
+                        <div class="bg-deepblack p-6 rounded-xl border border-gray-800 border-l-4 border-l-gold">
+                            <h3 class="font-display text-xl font-bold mb-2 text-white">Our Vision</h3>
+                            <p class="text-gray-400 text-sm">"To become a trusted creative design studio recognized for originality, quality, innovation, and excellent customer service."</p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-display text-xl font-bold mb-4">Core Values</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-deepblack rounded-full text-sm text-gold border border-gray-800">Creativity</span>
+                        <span class="px-4 py-2 bg-deepblack rounded-full text-sm text-electric border border-gray-800">Professionalism</span>
+                        <span class="px-4 py-2 bg-deepblack rounded-full text-sm text-gray-300 border border-gray-800">Quality</span>
+                        <span class="px-4 py-2 bg-deepblack rounded-full text-sm text-gray-300 border border-gray-800">Innovation</span>
+                        <span class="px-4 py-2 bg-deepblack rounded-full text-sm text-gray-300 border border-gray-800">Reliability</span>
+                        <span class="px-4 py-2 bg-deepblack rounded-full text-sm text-gray-300 border border-gray-800">Customer Satisfaction</span>
+                    </div>
+                </div>
+
+                <!-- Our Team -->
+                <div id="team" class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-electric to-gold rounded-2xl transform rotate-3 opacity-20 filter blur-lg"></div>
+                    <div class="relative bg-deepblack border border-gray-800 rounded-2xl p-8">
+                        <h2 class="font-display text-3xl font-bold mb-8 text-center border-b border-gray-800 pb-4">Meet The Leaders</h2>
+                        
+                        <div class="space-y-8">
+                            <!-- Owner -->
+                            <div class="flex items-center gap-6">
+                                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-electric to-purple-900 flex items-center justify-center text-2xl font-bold border-2 border-electric shadow-[0_0_15px_rgba(157,0,255,0.4)]">
+                                    MG
+                                </div>
+                                <div>
+                                    <h4 class="font-display text-xl font-bold text-white">MUYANJA GEOFRY</h4>
+                                    <p class="text-electric font-medium text-sm mb-2">Owner & Lead Visionary</p>
+                                    <p class="text-gray-400 text-sm">The founding owner of VINCI STUDIOS, driving the creative direction, high-quality standards, and overall business strategy to ensure the studio remains an industry leader.</p>
+                                </div>
+                            </div>
+
+                            <!-- Manager -->
+                            <div class="flex items-center gap-6">
+                                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-gold to-yellow-700 flex items-center justify-center text-2xl font-bold border-2 border-gold text-black shadow-[0_0_15px_rgba(255,215,0,0.4)]">
+                                    NF
+                                </div>
+                                <div>
+                                    <h4 class="font-display text-xl font-bold text-white">NANYONJO FRIDAUS</h4>
+                                    <p class="text-gold font-medium text-sm mb-2">Studio Manager</p>
+                                    <p class="text-gray-400 text-sm">Responsible for supporting daily operations, seamless customer communication, and expert coordination of all design projects to meet client deadlines.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-deepblack relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-electric font-bold tracking-widest uppercase text-sm mb-2">What We Do</h2>
+                <h3 class="font-display text-4xl font-bold">Our Graphic Design Services</h3>
+                <p class="mt-4 text-gray-400">We offer a comprehensive suite of creative services tailored to elevate your brand, events, and business materials.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="service-card bg-cardblack rounded-xl p-8">
+                    <div class="w-14 h-14 bg-electric/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-fingerprint text-2xl text-electric"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mb-4 text-white">Branding & Identity</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Logo design & redesign</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Brand guidelines</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Business card design</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Corporate stationery</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Company profile design</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-cardblack rounded-xl p-8">
+                    <div class="w-14 h-14 bg-gold/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-bullhorn text-2xl text-gold"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mb-4 text-white">Marketing & Advertising</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Posters and flyers</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Banners and billboards</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Brochures & leaflets</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Product catalogues</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Roll-up banners</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-cardblack rounded-xl p-8">
+                    <div class="w-14 h-14 bg-electric/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-hashtag text-2xl text-electric"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mb-4 text-white">Digital & Social Media</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Social media posts</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> FB & IG advertisements</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> YouTube thumbnails</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Web graphics</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Email marketing graphics</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-cardblack rounded-xl p-8">
+                    <div class="w-14 h-14 bg-gold/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-print text-2xl text-gold"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mb-4 text-white">Printing & Publishing</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Invitation & Event cards</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Books & Magazines</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Calendars & Menus</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Certificates & Awards</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Packaging & Labels</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-cardblack rounded-xl p-8">
+                    <div class="w-14 h-14 bg-electric/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-briefcase text-2xl text-electric"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mb-4 text-white">Business & Commercial</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Product packaging</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Shop signage</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Real estate marketing</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Business presentations</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Promotional merchandise</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-cardblack rounded-xl p-8">
+                    <div class="w-14 h-14 bg-gold/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-music text-2xl text-gold"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mb-4 text-white">Events & Entertainment</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Concert & Music posters</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Wedding & Birthday graphics</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Church event posters</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Sports event graphics</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Entertainment artwork</li>
+                    </ul>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card bg-cardblack rounded-xl p-8">
+                    <div class="w-14 h-14 bg-electric/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-wand-magic-sparkles text-2xl text-electric"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mb-4 text-white">Photo Editing & Art</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Photo retouching</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Background removal</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Digital illustrations</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Typography artwork</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2 text-xs"></i> Creative composites</li>
+                    </ul>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card bg-cardblack rounded-xl p-8">
+                    <div class="w-14 h-14 bg-gold/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-laptop-code text-2xl text-gold"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mb-4 text-white">Website & UI Graphics</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Website banners</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> App interface design</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Basic UI/UX design</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Infographics</li>
+                        <li><i class="fa-solid fa-check text-electric mr-2 text-xs"></i> Custom icons</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section id="portfolio" class="py-20 bg-cardblack">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-gold font-bold tracking-widest uppercase text-sm mb-2">Our Work</h2>
+                <h3 class="font-display text-4xl font-bold">Portfolio Showcase</h3>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active px-6 py-2 rounded-full border border-electric text-white bg-electric transition-colors" data-filter="all">All Projects</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-700 hover:border-gold text-gray-300 hover:text-white transition-colors" data-filter="branding">Branding</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-700 hover:border-gold text-gray-300 hover:text-white transition-colors" data-filter="marketing">Posters & Flyers</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-700 hover:border-gold text-gray-300 hover:text-white transition-colors" data-filter="social">Social Media</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-700 hover:border-gold text-gray-300 hover:text-white transition-colors" data-filter="packaging">Packaging</button>
+            </div>
+
+            <!-- Portfolio Grid (Using sample high-quality Unsplash design images) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                
+                <!-- Item 1 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-xl bg-deepblack aspect-[4/3] cursor-pointer" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Brand Identity Mockup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-electric font-bold text-xs uppercase tracking-wider mb-1">Branding</span>
+                        <h4 class="text-xl font-bold text-white">Corporate Identity Mockup</h4>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-xl bg-deepblack aspect-[4/3] cursor-pointer" data-category="marketing">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" alt="Poster Design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold font-bold text-xs uppercase tracking-wider mb-1">Posters & Flyers</span>
+                        <h4 class="text-xl font-bold text-white">Creative Event Poster</h4>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-xl bg-deepblack aspect-[4/3] cursor-pointer" data-category="social">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Graphics" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-electric font-bold text-xs uppercase tracking-wider mb-1">Social Media</span>
+                        <h4 class="text-xl font-bold text-white">Instagram Campaign Assets</h4>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-xl bg-deepblack aspect-[4/3] cursor-pointer" data-category="packaging">
+                    <img src="https://images.unsplash.com/photo-1605640840469-9528bc43f3dd?auto=format&fit=crop&w=800&q=80" alt="Packaging Design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold font-bold text-xs uppercase tracking-wider mb-1">Packaging</span>
+                        <h4 class="text-xl font-bold text-white">Premium Coffee Label</h4>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-xl bg-deepblack aspect-[4/3] cursor-pointer" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Logo Design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-electric font-bold text-xs uppercase tracking-wider mb-1">Branding</span>
+                        <h4 class="text-xl font-bold text-white">Minimalist Logo Design</h4>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-xl bg-deepblack aspect-[4/3] cursor-pointer" data-category="marketing">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80" alt="Business Presentation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold font-bold text-xs uppercase tracking-wider mb-1">Posters & Flyers</span>
+                        <h4 class="text-xl font-bold text-white">Business Brochure Layout</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-500 text-sm mt-8 italic">* Sample projects displayed to demonstrate capability. Client portfolio will be updated soon.</p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us & Testimonials -->
+    <section class="py-20 bg-deepblack border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Why Choose Us -->
+                <div>
+                    <h2 class="font-display text-3xl font-bold mb-8">Why Choose <span class="text-gold">Us</span>?</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-electric/20 flex-shrink-0 flex items-center justify-center text-electric">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-1">Creative and Original Designs</h4>
+                                <p class="text-gray-400 text-sm">We don't use generic templates. Every design is crafted from scratch to perfectly match your brand's unique identity.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gold/20 flex-shrink-0 flex items-center justify-center text-gold">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-1">Professional Presentation</h4>
+                                <p class="text-gray-400 text-sm">We provide high-quality mockups and final files formatted perfectly for print or digital deployment.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-electric/20 flex-shrink-0 flex items-center justify-center text-electric">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-1">Reliable Communication</h4>
+                                <p class="text-gray-400 text-sm">Managed effectively by our dedicated team, we keep you in the loop through every step of the design process.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials -->
+                <div>
+                    <h2 class="font-display text-3xl font-bold mb-8">Client <span class="text-electric">Feedback</span></h2>
+                    <div class="bg-cardblack p-8 rounded-xl border border-gray-800 relative">
+                        <i class="fa-solid fa-quote-left text-4xl text-gray-700 absolute top-6 left-6"></i>
+                        <div class="relative z-10 pl-8 pt-4">
+                            <p class="text-gray-300 italic mb-6">"VINCI STUDIOS completely transformed our brand identity. The logo and marketing materials they created for our launch were beyond our expectations. Truly professional and highly creative team!"</p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white font-bold">C</div>
+                                <div>
+                                    <h5 class="text-white font-bold text-sm">Local Business Owner</h5>
+                                    <p class="text-gold text-xs">Kampala, Uganda</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-4 text-right">* Placeholder reviews. Real testimonials coming soon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-cardblack relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold mb-4">Let's Work <span class="text-electric">Together</span></h2>
+                <p class="text-gray-400">Ready to start your next design project? Get in touch with us today.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 bg-deepblack rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 bg-gradient-to-br from-[#121212] to-[#0a0a0a] p-10 border-r border-gray-800">
+                    <h3 class="font-display text-2xl font-bold text-white mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-electric/20 flex items-center justify-center text-electric flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-gray-400 text-sm uppercase tracking-wider mb-1">Our Location</h5>
+                                <p class="text-white font-medium">Along Salaama Road,<br>after Nesta Petrol Station,<br>GRATIAS Building,<br>Kampala, Uganda.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-gray-400 text-sm uppercase tracking-wider mb-1">Call Us Directly</h5>
+                                <div class="flex flex-col space-y-2 mt-2">
+                                    <a href="tel:+256750617186" class="text-white hover:text-electric transition-colors font-medium text-lg">+256 750 617 186</a>
+                                    <a href="tel:+256700138297" class="text-white hover:text-electric transition-colors font-medium text-lg">+256 700 138 297</a>
+                                    <a href="tel:+256788138297" class="text-white hover:text-electric transition-colors font-medium text-lg">+256 788 138 297</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-gray-800">
+                        <p class="text-gray-400 mb-4 text-sm">For the fastest response, reach out via WhatsApp:</p>
+                        <a href="https://wa.me/256750617186" target="_blank" class="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe57] text-white py-3 px-4 rounded-lg font-bold transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i> WhatsApp Us Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 p-10">
+                    <h3 class="font-display text-2xl font-bold text-white mb-6">Send Us a Message</h3>
+                    <p class="text-sm text-gray-500 mb-8 bg-gray-900/50 p-3 rounded border border-gray-800">
+                        <i class="fa-solid fa-circle-info text-electric mr-2"></i> Form submissions require backend integration. Please use WhatsApp for immediate assistance!
+                    </p>
+
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" required class="w-full bg-cardblack border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric transition-colors" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required class="w-full bg-cardblack border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric transition-colors" placeholder="+256 700 000 000">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2" for="email">Email Address</label>
+                            <input type="email" id="email" required class="w-full bg-cardblack border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric transition-colors" placeholder="email@example.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2" for="service">Service Required</label>
+                            <select id="service" class="w-full bg-cardblack border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric transition-colors appearance-none">
+                                <option value="">Select a service...</option>
+                                <option value="branding">Branding & Identity</option>
+                                <option value="marketing">Marketing & Advertising Design</option>
+                                <option value="social">Digital & Social Media Graphics</option>
+                                <option value="printing">Printing & Publishing Design</option>
+                                <option value="events">Events & Entertainment Graphics</option>
+                                <option value="other">Other Creative Service</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2" for="message">Project Description</label>
+                            <textarea id="message" rows="4" required class="w-full bg-cardblack border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric transition-colors" placeholder="Tell us about your project requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full btn-electric text-white font-bold py-4 rounded-lg flex justify-center items-center gap-2">
+                            <span>Submit Request</span> <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+
+                    <!-- Form Status Message -->
+                    <div id="formStatus" class="hidden mt-4 p-4 rounded-lg bg-green-900/30 border border-green-500 text-green-400 text-center text-sm">
+                        Thank you for your message! However, since the backend is not connected, please click the WhatsApp button to chat with us directly.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050505] border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none">
+                            <path d="M20 20 L50 80 L65 50" stroke="#9D00FF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M80 20 C60 20, 55 40, 70 50 C85 60, 80 80, 50 80" stroke="#FFD700" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-display font-bold text-lg tracking-wider text-white">VINCI <span class="text-electric">STUDIOS</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Turning Ideas Into Powerful Visual Designs. A creative studio based in Uganda delivering top-tier branding, marketing, and digital designs.
+                    </p>
+                    <div class="flex space-x-4">
+                        <!-- Social placeholders to be configured later -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-cardblack border border-gray-800 flex items-center justify-center text-gray-400 hover:text-electric hover:border-electric transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-cardblack border border-gray-800 flex items-center justify-center text-gray-400 hover:text-electric hover:border-electric transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-cardblack border border-gray-800 flex items-center justify-center text-gray-400 hover:text-electric hover:border-electric transition-all"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-display font-bold text-white mb-6 uppercase text-sm tracking-widest">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-gold text-sm transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-gold text-sm transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-gold text-sm transition-colors">Our Services</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-gold text-sm transition-colors">Portfolio</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-gold text-sm transition-colors">Our Team</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-gold text-sm transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div>
+                    <h4 class="font-display font-bold text-white mb-6 uppercase text-sm tracking-widest">Main Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-electric text-sm transition-colors">Branding & Identity</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-electric text-sm transition-colors">Marketing Graphics</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-electric text-sm transition-colors">Digital & Social Media</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-electric text-sm transition-colors">Printing & Publishing</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-electric text-sm transition-colors">Events & Entertainment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Footer -->
+                <div>
+                    <h4 class="font-display font-bold text-white mb-6 uppercase text-sm tracking-widest">Get In Touch</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm text-gray-400">
+                            <i class="fa-solid fa-location-dot mt-1 text-electric"></i>
+                            <span>Along Salaama Road, after Nesta Petrol Station, GRATIAS Building, Uganda.</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-gray-400">
+                            <i class="fa-solid fa-phone text-electric"></i>
+                            <div class="flex flex-col">
+                                <a href="tel:+256750617186" class="hover:text-white transition-colors">+256 750 617 186</a>
+                                <a href="tel:+256700138297" class="hover:text-white transition-colors">+256 700 138 297</a>
+                                <a href="tel:+256788138297" class="hover:text-white transition-colors">+256 788 138 297</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 VINCI STUDIOS. All Rights Reserved.</p>
+                <p class="text-gray-600 text-sm">Owned by MUYANJA GEOFRY | Managed by NANYONJO FRIDAUS</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Portfolio Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-electric', 'text-white', 'border-electric');
+                    b.classList.add('border-gray-700', 'text-gray-300');
+                });
+                
+                // Add active class to clicked
+                btn.classList.remove('border-gray-700', 'text-gray-300');
+                btn.classList.add('bg-electric', 'text-white', 'border-electric');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        // Trigger simple animation
+                        item.style.animation = 'fadeIn 0.5s ease-out forwards';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form Submission Mockup
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent page reload
+            
+            // Show status message
+            formStatus.classList.remove('hidden');
+            
+            // Reset form fields
+            contactForm.reset();
+            
+            // Hide message after 8 seconds
+            setTimeout(() => {
+                formStatus.classList.add('hidden');
+            }, 8000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg', 'shadow-electric/5');
+            } else {
+                header.classList.remove('shadow-lg', 'shadow-electric/5');
+            }
+        });
+    </script>
+</body>
+</html>
+info
+Google AI models may make mistakes, so double-check outputs.
+info
+Enable URL Context
+
+You provided URL(s), but the URL Context tool is required to access their content. Please enable the URL Context tool and try your request again.
+Use Arrow Up and Arrow Down to select a turn, Enter to jump to it, and Escape to return to the chat.
+Start typing a prompt to see what our models can do
+
+
+google
+Grounding with Google Search
+1
+
+
